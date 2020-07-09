@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import '/home/anisha/git-workspace/todo-list-react/src/fontawesome.js';
 
 export default class TodoInput extends Component {
     render() {
-        const {item, handleChange, handleSubmit}=this.props
+        const {item, handleChange, handleSubmit}=this.props //Destructor and getting props from appjs
         return (<div className="card card-body my-3">
             <form onSubmit={handleSubmit}>
                 <div className="input-group">

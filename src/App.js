@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import TodoInput from './Components/TodoInput';
 import TodoList from './Components/TodoList';
-import "/home/anisha/git-workspace/todo-list-react/src/fontawesome.js"
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import {v1 as uuid} from "uuid";
-import { dom } from '@fortawesome/fontawesome-svg-core'
 
 
-dom.watch()
+
 
 class App extends Component{
   state={
@@ -16,11 +15,13 @@ class App extends Component{
     item:'',
     editItem:false
   }
+  //handlechange is a method to show what we have typed in the box
   handleChange=(e)=>{
     this.setState({
       item:e.target.value
     });
   };
+  //handleSubmit is a method to submit the values we type
   handleSubmit=(e)=>{
     e.preventDefault();
 
@@ -29,16 +30,17 @@ class App extends Component{
     title:this.state.item
   };
 
-
+//In updatedItems we are using spread operator to get previous items and new items
   const updatedItems=[...this.state.items, newItem];
   this.setState({
     items:updatedItems,
-    item:'',
-    id:uuid(),
+    item:'',  //it sets the box empty again
+    id:uuid(),  //with a completely different id for next item
     editItem:false
   });
 
   };
+  //clearlist sets the items to empty
   clearList=()=>{
     this.setState({
       items:[]
@@ -57,10 +59,10 @@ class App extends Component{
         <div className="row">
           <div className="col-10 mx-auto col-md-8 mt-4">
           <h3 className="text-capitalize text-center">todo input</h3>
-          <TodoInput item={this.state.item} 
+          <TodoInput item={this.state.item} //passing method to todoinput
           handleChange={this.handleChange} 
           handleSubmit={this.handleSubmit}/>
-          <TodoList items={this.state.items}
+          <TodoList items={this.state.items} //passing items value to todolist
            clearList={this.clearList}
            handleDelete={this.handleDelete}
            />
