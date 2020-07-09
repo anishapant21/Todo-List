@@ -46,6 +46,7 @@ class App extends Component{
       items:[]
     });
   };
+  //filters item such that it doesn't match the given id
   handleDelete=(id)=>{
     const filteredItems=this.state.items.filter(item=> item.id !== id)
     this.setState({

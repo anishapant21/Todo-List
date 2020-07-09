@@ -11,7 +11,7 @@ export default class TodoList extends Component {
                        return <TodoItem 
                        key={item.id} 
                        title={item.title}
-                       handleDelete={()=>handleDelete(item.id)}
+                       handleDelete={()=>handleDelete(item.id)} //creating arrow function for implicit return otherwise throws error
 
                        />
                     
