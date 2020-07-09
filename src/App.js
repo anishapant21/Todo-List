@@ -53,6 +53,10 @@ class App extends Component{
       items:filteredItems
     });
   };
+  handleEdit=id=>{
+    console.log(id);
+    
+  }
 
   render(){
     return (
@@ -66,6 +70,7 @@ class App extends Component{
           <TodoList items={this.state.items} //passing items value to todolist
            clearList={this.clearList}
            handleDelete={this.handleDelete}
+           handleEdit={this.handleEdit}
            />
 
           </div>
